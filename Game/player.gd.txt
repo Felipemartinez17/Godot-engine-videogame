@@ -1,0 +1,30 @@
+extends CharacterBody2D
+
+@export var speed := 300
+@export var can_shoot: bool = true
+
+signal laser(pos)
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	position = Vector2(640,500)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	var direction = Input.get_vector("Left","Right","Up","Down")
+	velocity = direction * speed
+	move_and_slide()
+	
+	# Shoot input
+	if Input.is_action_just_pressed("Shoot") and can_shoot:
+		laser.emit($LaserPosition.global_position)
+		can_shoot = false
+		$LaserTimer.start()
+		$LaserSound.play()
+		
+func _play_collision_sound() -> void:
+	$DamageSound.play()
+
+func _on_laser_timer_timeout() -> void:
+	can_shoot = true
