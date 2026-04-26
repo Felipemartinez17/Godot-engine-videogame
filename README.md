@@ -44,7 +44,28 @@ Your final score reflects both your endurance and your skill.
 | Shoot Laser | `Spacebar` |
 
 ---
+## 🛠️ Installation & Setup
 
+1. Clone the repository:
+
+   bash
+   github link for the project: https://santileyva.itch.io/space-shooter
+   
+
+2. Navigate into the project directory and download the zip:
+
+   extract all files
+   space-shooter application
+   
+
+3. Run the game:
+
+   bash
+   # Example (depends on language/framework)
+   python main.py
+   
+
+---
 ---
 
 ## 🧩 Project Structure
